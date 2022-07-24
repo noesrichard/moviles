@@ -1,0 +1,19 @@
+<ion-item-sliding>
+  <ion-item-options side="end">
+    <ion-item-option (click)="delete()" color="danger">Eliminar</ion-item-option>
+  </ion-item-options>
+
+  <ion-item *ngIf="task" [routerLink]="'/tasks/' + task.id" [detail]="false">
+    <div slot="start" [class]="!task.read ? 'dot dot-unread' : 'dot'"></div>
+    <ion-label class="ion-text-wrap">
+      <h2>
+        {{ task.title }}
+        <span class="date">
+          <ion-note>{{ task.deadline }}</ion-note>
+          <ion-icon size="small"></ion-icon>
+        </span>
+      </h2>
+      <h3>{{ task.subtitle }}</h3>
+    </ion-label>
+  </ion-item>
+</ion-item-sliding>
